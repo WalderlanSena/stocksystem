@@ -1,0 +1,23 @@
+/* Css page */
+.navbar {
+    padding: 10px;
+    background-color: rgb(37, 30, 30) !important;
+    border: 0px;
+    border-radius: 0px;
+}
+.navbar a {
+    color: #FFF !important;
+    background-color: transparent !important;    
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    font-size: 16px;
+}
+.navbar a img {
+    margin-top: -10px;
+}
+footer {
+    background-color: rgb(37, 30, 30) !important;
+    border-bottom: 10px solid #1a1414;
+    padding: 50px;
+    color: #FFF;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;    
+}
