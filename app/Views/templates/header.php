@@ -7,6 +7,7 @@
     <title>Stock System :: Sistema de Controle de Estoque de Veículos</title>
     <link rel="shortcut icon" href="../../assets/images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/css/animate.css">
     <link rel="stylesheet" href="../../assets/css/main.css">
 </head>
 <body>
