@@ -6,12 +6,13 @@
                     <form class="form-signin animated bounceInDown" method="post">
                         <figure>
                             <img src="/assets/images/logo-lg.png" class="img-responsive img-center">
-                        </figure>    
-                        <input type="email" id="inputEmail" class="form-control" placeholder="Digite seu login" required autofocus>
+                        </figure>
+
+                        <input type="text" id="login" class="form-control" placeholder="Digite seu login" required autofocus>
                         
-                        <input type="password" id="inputPassword" class="form-control" placeholder="Digite sua senha" required>
+                        <input type="password" id="senha" class="form-control" placeholder="Digite sua senha" required>
                 
-                        <button class="btn btn-lg btn-primary btn-block" type="submit">Logar</button>
+                        <button type="button" id="logar" class="btn btn-lg btn-primary btn-block"><span class="glyphicon glyphicon-log-in"></span> Entrar</button>
                     </form>
                 </section>
             </div>

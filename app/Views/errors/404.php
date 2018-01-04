@@ -8,11 +8,12 @@
     <link rel="shortcut icon" href="../../../assets/images/favicon.png">
     <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../assets/css/errors.css">
+    <link rel="stylesheet" href="../../../assets/css/animate.css">
 </head>
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-md-12 text-center">
+            <div class="col-md-12 animated jackInTheBox text-center">
                 <span class="glyphicon glyphicon-thumbs-down icon"></span>
                 <h1>Página não encontrada :( </h1>
                 <h3>Desculpe, a página que você procura não existe...</h3>

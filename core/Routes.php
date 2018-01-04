@@ -18,6 +18,12 @@ class Routes extends Bootstrap
     protected function initRoutes()
     {
         $route[] = array("/", "IndexController", "indexAction");
+        
+        $route[] = array("/auth/login", "IndexController", "loginAction");
+        $route[] = array("/auth/logout", "IndexController", "logoutAction");
+       
+        $route[] = array("/administrator", "UserController", "adminAction");
+        $route[] = array("/painel", "UserController", "painelAction");
 
         $this->setRoutes($route);
     }//end método initRoutes

@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../assets/css/animate.css">
     <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/alertify.core.css">
+    <link rel="stylesheet" href="../../assets/css/alertify.default.css">
 </head>
 <body>
     <nav class="navbar navbar-default">
@@ -28,7 +30,11 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    
+                    <?php if (isset($_SESSION['userData'])): ?>
+                    <li>
+                        <a href="/auth/logout"><span class="glyphicon glyphicon-log-out"></span> Sair</a>
+                    </li>
+                    <?php endif; ?>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->

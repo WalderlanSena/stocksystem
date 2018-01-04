@@ -9,5 +9,8 @@
 
 require_once "vendor/autoload.php";
 
+// Verificando a existência de uma session
+if(!session_id()) session_start();
+
 // Inicializando a aplicação
 $app = new \Core\Routes();
