@@ -10,8 +10,7 @@ function insertData(dadosIn, key)
     dados.push(dadosIn);
     // Chamando a repassando os dados para a função que salva os dados no localStorage
     salveDataAll(dados, key);
-    // Iniciando mensagem de sucesso
-    alertify.success("Veículo cadastrado com <b>Sucesso !</b>");
+    
 }//end function insertData
 
 /**
@@ -70,10 +69,6 @@ function deleteData(id, key)
     dados[id] = undefined;
 
     salveDataAll(dados, key);
-
-    $('#veiculo-'+id).remove();
-
-    alertify.success("<p class='text-center'><span class='glyphicon glyphicon-ok-sign'></span> Veículo excluido com <b>Sucesso !</b></p>");
 }
 
 // Atualiza os dados da tabela em cada operação
@@ -104,14 +99,36 @@ function updateTable(key)
     }
 }
 
-// Atualiza um dado especificado
-function updateData(dadosIn, id)
+
+// Atualiza os dados da tabela em cada operação
+function updateTableUser()
 {
-    var dados = searchDataAll("veiculos");
+    var dados = searchDataAll("Database");
+    var table = $('#usuariosCadastrados');
+    table.html('');
+
+    for (var i in dados){
+        if(dados[i] == null) {
+            continue;
+        }
+        table.prepend(
+            '<tr id="user-'+i+'">'+
+            '<td>'+i+'</td>'+
+            '<td>'+dados[i].login+'</td>'+
+            '<td>'+dados[i].senha+'</td>'+
+            '<td>'+'<span id="'+i+'" class="glyphicon glyphicon-pencil editarUser"></span>'+'</td>'+
+            '<td>'+'<span id="'+i+'" class="glyphicon glyphicon-trash excluirUser"></span>'+'</td>'+
+            '</tr>'
+        );
+    }
+}
+
+// Atualiza um dado especificado
+function updateData(dadosIn, id, key)
+{
+    var dados = searchDataAll(key);
 
     dados[id] = dadosIn;
 
-    salveDataAll(dados, "veiculos");
-
-    alertify.success("<p class='text-center'><span class='glyphicon glyphicon-ok-sign'></span> Veículo atualizada com <b>Sucesso !</b></p>");
+    salveDataAll(dados, key);
 }

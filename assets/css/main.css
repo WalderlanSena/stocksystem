@@ -86,8 +86,9 @@
 .dados-table table th {
     text-align: center !important;
 }
-.excluir, .editar {
+.excluir, .editar, .excluirUser, .editarUser {
     cursor: pointer;
+    color: crimson !important;
 }
 
 footer {

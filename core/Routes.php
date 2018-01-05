@@ -21,7 +21,9 @@ class Routes extends Bootstrap
         
         $route[] = array("/auth/login", "IndexController", "loginAction");
         $route[] = array("/auth/logout", "IndexController", "logoutAction");
-       
+
+        $route[] = array("/new/user", "IndexController", "newUserAction");
+        
         $route[] = array("/administrator", "UserController", "adminAction");
         $route[] = array("/painel", "UserController", "painelAction");
 

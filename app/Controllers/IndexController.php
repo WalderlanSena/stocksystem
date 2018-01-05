@@ -37,10 +37,16 @@ class IndexController extends Controller
             $dados = $_POST['logar'];
             // Iterando sobre a estrutura de dados vinda do localStorage
             for ($i = 0; $i < count($dados); $i++):
-                if ($login == $dados[$i]['login'] && password_verify($senha, $dados[$i]['senha'])) {
+                if ($login == $dados[$i]['login'] && $senha == $dados[$i]['senha']) {
                     // Se o usúario for administrador ou usúario comum o mesmo é redirecionando para a view especifica
                     if ($dados[$i]['nivel'] == 1) {
                         $data = array("msg" => "admin");
+                        // Iniciando a session
+                        session_start();
+                        $_SESSION['userData'] = [
+                            "login" => $dados[$i]['login'],
+                            "nivel" => $dados[$i]['nivel']
+                        ];
                         break;
                     } else if ($dados[$i]['nivel'] == 0) {
                         $data = array("msg" => "user");
@@ -72,5 +78,23 @@ class IndexController extends Controller
         unset($_SESSION['userData']);
         session_destroy();
         Redirector::redirectToRoute("/");
+    }
+
+    public function newUserAction()
+    {
+        if (isset($_POST['login']) && isset($_POST['senha']) && isset($_POST['cadNewUser'])) {
+           
+            $login = filter_input(INPUT_POST, "login",  FILTER_SANITIZE_ENCODED);
+            $senha = filter_input(INPUT_POST, "senha",  FILTER_SANITIZE_ENCODED);
+
+            $dados = [
+                "login" => $login,
+                "senha" => $senha
+            ];
+            echo json_encode($dados);
+        } else {
+            // Caso não exista a requisição basica. Redireciona o usúario para 404
+            Container::pageNotFound();
+        }
     }
 }//end IndexController

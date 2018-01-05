@@ -50,7 +50,7 @@ $(document).ready(function(){
 
     // ---------- Atualizando dados da tabela ----------
     updateTable("veiculos");
-    
+    updateTableUser();
     // ---------- Eventos Painel Administrativo ----------
 
     // ---------- Buscando por todas as marcas ---------
@@ -169,7 +169,8 @@ $(document).ready(function(){
              * @param Key LocalStorage respectivo a sua key   
              */
             insertData(dados, "veiculos");
-
+            // Iniciando mensagem de sucesso
+            alertify.success("Veículo cadastrado com <b>Sucesso !</b>");
             // Resetando campos do formulario
             $("#cadVeiculo").trigger('reset');
             
@@ -181,6 +182,50 @@ $(document).ready(function(){
         } else {
             alertify.error("<p class='text-center'><span class='glyphicon glyphicon-warning-sign'></span> Desculpe, todos os dados são <b>Obrigatórios !</b></p>");       
         }
+    });
+
+    $(".editarUser").click(function(){
+        var id = this.id;
+
+        var dados = searchDataId(id, "Database");
+        $("#code").val(id);
+        $("#login2").val(dados.login);
+        $("#senha2").val(dados.senha);
+        $("#myModal").modal();
+    });
+
+    $("#updateUser").click(function(){
+         // Capturando os dados digitados
+         var id    = $("#formUser #code").val();
+         var login = $("#formUser #login2").val();
+         var senha = $("#formUser #senha2").val();
+         // Verificando os dados
+         if (login != '' && senha != '') {
+             $.ajax({
+                 url: "/new/user",
+                 type: "POST",
+                 data:{
+                     login: login,
+                     senha: senha,
+                     cadNewUser: "ok"
+                 },
+                 dataType: "json",
+                 success:function(data) {
+                     var user = {
+                         login: data['login'],
+                         senha: data['senha']
+                     };
+                     updateData(user, id, "Database")
+                     alertify.success("<p class='text-center'><span class='glyphicon glyphicon-warning-sign'></span> Usúario atualizado com <b> Sucesso ! </b></p>"); 
+                     $("#myModal").modal("hide");
+                     updateTableUser();
+                     $("#formUser").trigger('reset');
+                 }
+ 
+             });
+         } else {
+             alertify.error("<p class='text-center'><span class='glyphicon glyphicon-warning-sign'></span> Desculpe, ambos campos são <b> Obrigatórios ! </b></p>"); 
+         }
     });
 
     $(".editar").click(function(){
@@ -232,8 +277,8 @@ $(document).ready(function(){
               * @param Dados a serem inseridos
               * @param Key LocalStorage respectivo a sua key   
               */
-             updateData(dados, id);
- 
+             updateData(dados, id, "veiculos");
+             alertify.success("<p class='text-center'><span class='glyphicon glyphicon-ok-sign'></span> Veículo atualizado com <b>Sucesso !</b></p>");
              // Resetando campos do formulario
              $("#updateV").trigger('reset');
              
@@ -252,6 +297,23 @@ $(document).ready(function(){
         alertify.confirm("Deseja excluir o veículo?", function (e) {
             if (e) {
                 deleteData(id, "veiculos");
+
+                $('#veiculo-'+id).remove();
+                alertify.success("<p class='text-center'><span class='glyphicon glyphicon-ok-sign'></span> Veículo excluido com <b>Sucesso !</b></p>");
+            
+            } else {
+                alertify.log("<p class='text-center'><span class='glyphicon glyphicon-warning-sign'></span> Operação cancelada <b> :) </b></p>"); 
+            }
+        });
+    });
+
+    $(".excluirUser").click(function(){
+        var id = this.id;
+        alertify.confirm("Deseja excluir este usúario ?", function (e) {
+            if (e) {
+                deleteData(id, "Database");
+                $('#user-'+id).remove();
+                alertify.success("<p class='text-center'><span class='glyphicon glyphicon-ok-sign'></span> Usúario excluido com <b>Sucesso !</b></p>");
             } else {
                 alertify.log("<p class='text-center'><span class='glyphicon glyphicon-warning-sign'></span> Operação cancelada <b> :) </b></p>"); 
             }
@@ -263,6 +325,42 @@ $(document).ready(function(){
         $('#veiculosCadastrados tr').filter(function() {
             $(this).toggle($(this).text().indexOf(letras) > -1);
         });
+
+        $('#usuariosCadastrados tr').filter(function() {
+            $(this).toggle($(this).text().indexOf(letras) > -1);
+        });
+    });
+
+    // Realiza o cadastro de um novo usuario
+    $("#cadNewUsuario").click(function(){
+        // Capturando os dados digitados
+        var login = $("#formUser #login").val();
+        var senha = $("#formUser #senha").val();
+        // Verificando os dados
+        if (login != '' && senha != '') {
+            $.ajax({
+                url: "/new/user",
+                type: "POST",
+                data:{
+                    login: login,
+                    senha: senha,
+                    cadNewUser: "ok"
+                },
+                dataType: "json",
+                success:function(data) {
+                    var user = {
+                        login: data['login'],
+                        senha: data['senha']
+                    };
+                    insertData(user, "Database");
+                    alertify.success("<p class='text-center'><span class='glyphicon glyphicon-warning-sign'></span> Usúario cadastrado com <b> Sucesso ! </b></p>"); 
+                    updateTableUser();
+                }
+
+            });
+        } else {
+            alertify.error("<p class='text-center'><span class='glyphicon glyphicon-warning-sign'></span> Desculpe, ambos campos são <b> Obrigatórios ! </b></p>"); 
+        }
     });
 
 });

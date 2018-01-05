@@ -7,9 +7,8 @@ $(document).ready(function(){
         // Dados de login do usuario administrativo
         var data = [
             {
-                id: 1,
                 login: 'admin',
-                senha: '$2y$10$D73ponNVCLuhRcOmMuMx..PJr0injZTfzKKKG3bzQaLPM432Hmf8m',
+                senha: 'admin',
                 nivel: 1
             }
         ];
