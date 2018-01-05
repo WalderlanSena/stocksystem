@@ -10,8 +10,9 @@
     </footer>
     <script src="../../assets/js/jquery-3.2.1.min.js"></script>
     <script src="../../assets/js/bootstrap.min.js"></script>
-    <script src="../../assets/js/InitAdmin.js"></script>
-    <script src="../../assets/js/EventsAction.js"></script>
     <script src="../../assets/js/alertify.min.js"></script>
+    <script src="../../assets/js/InitAdmin.js"></script>
+    <script src="../../assets/js/Crud.js"></script>
+    <script src="../../assets/js/EventsAction.js"></script>
 </body>
 </html>
