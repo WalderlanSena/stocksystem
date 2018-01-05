@@ -64,6 +64,17 @@
 /* END CSS PAGE INDEX */
 
 /* CSS PAINEL */
+.panel {
+    border: 1px dotted crimson !important;
+    text-align: center !important;
+}
+.panel-primary .panel-heading {
+    background-color: crimson !important;
+}
+.panel-primary button {
+    background-color: crimson !important;
+    font-weight: bold;
+}
 .back-operation {
     padding: 10px;
     margin-top: 30px;

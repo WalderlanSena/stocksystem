@@ -50,7 +50,7 @@
     <div class="container">
         <div class="row">
             <div class="back-operation">
-                <section class="col-md-12">
+                <section class="col-md-12 animated bounceIn">
                     <div class="panel panel-primary">
                         <div class="panel panel-heading">
                             <header>
@@ -132,7 +132,7 @@
                     </div><!-- end panel -->
                 </section>
 
-                <section class="col-md-12 dados-table">
+                <section class="col-md-12 animated bounce dados-table">
                     <div class="panel panel-primary text-center">
                         <div class="panel panel-heading">
                             <header>
