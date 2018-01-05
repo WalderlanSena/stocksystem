@@ -257,4 +257,12 @@ $(document).ready(function(){
             }
         });
     });
+
+    $('#busca').keyup( function () {
+        var letras = $(this).val();
+        $('#veiculosCadastrados tr').filter(function() {
+            $(this).toggle($(this).text().indexOf(letras) > -1);
+        });
+    });
+
 });

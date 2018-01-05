@@ -142,6 +142,10 @@
 
                         <div class="panel-body">
                             <div class="table-responsive">
+                                <form action="" method="post">
+                                    <input type="text" id="busca" class="form-control" placeholder="O que você procura?">
+                                </form>
+                                <br>
                                 <table class="table table-hover table-bordered">
                                     <thead>
                                         <th>Placa</th>
