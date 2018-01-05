@@ -9,6 +9,12 @@
   <img src="https://github.com/WalderlanSena/stocksystem/blob/develop/screens/estrutura.png">
 </p>
 
+<h2>Local de Armazenamento dos dados da aplicação</h2>
+<p align="center">
+  A aplicação <strong>não utiliza banco de dados</strong>, entretando as mesma funcionalidades aplicadas no CRUD com está estrutura podem ser adaptadas para qualquer SGBD.
+  <img src="https://github.com/WalderlanSena/stocksystem/blob/develop/screens/LocalStorage.png">
+</p>
+
 <h2>Tela Inicial do Sistema</h2>
 <p>O login por padrão sempre será: Login: <strong>admin</strong> Senha: <strong>admin</strong></p>
 <p align="center">
